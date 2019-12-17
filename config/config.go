@@ -22,6 +22,7 @@ const (
 	IsDebug             = "IS_DEBUG"              //Output verbose debug information
 	IsTile38            = "IS_TILE38"             //Whether to scrape Tile38 specific metrics
 	ExportClientList    = "EXPORT_CLIENT_LIST"    //Whether to scrape Client List specific metrics
+	SetClientName       = "SET_CLIENT_NAME"       //Whether to set client name to redis_exporter
 	ShowVersion         = "SHOW_VERSION"          //Show version information and exit
 	RedisMetricsOnly    = "REDIS_METRICS_ONLY"    //Whether to also export go runtime metrics
 	InclSystemMetrics   = "INCL_SYSTEM_METRICS"   //Whether to include system metrics like e.g. redis_total_system_memory_bytes
@@ -50,6 +51,7 @@ const (
 	defaultIsDebug             = false
 	defaultIsTile38            = true
 	defaultExportClientList    = false
+	defaultSetClientName       = false
 	defaultShowVersion         = false
 	defaultRedisMetricsOnly    = false
 	defaultInclSystemMetrics   = true
@@ -78,6 +80,7 @@ type Config struct {
 	IsDebug             bool
 	IsTile38            bool
 	ExportClientList    bool
+	SetClientName       bool
 	ShowVersion         bool
 	RedisMetricsOnly    bool
 	InclSystemMetrics   bool
@@ -108,6 +111,7 @@ func New() *Config {
 		IsDebug:             getEnvAsBool(IsDebug, defaultIsDebug),
 		IsTile38:            getEnvAsBool(IsTile38, defaultIsTile38),
 		ExportClientList:    getEnvAsBool(ExportClientList, defaultExportClientList),
+		SetClientName:       getEnvAsBool(SetClientName, defaultSetClientName),
 		ShowVersion:         getEnvAsBool(ShowVersion, defaultShowVersion),
 		RedisMetricsOnly:    getEnvAsBool(RedisMetricsOnly, defaultRedisMetricsOnly),
 		InclSystemMetrics:   getEnvAsBool(InclSystemMetrics, defaultInclSystemMetrics),

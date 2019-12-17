@@ -29,11 +29,14 @@ func getEnv(key string, defaultVal string) string {
 	return defaultVal
 }
 
-func getEnvBool(key string) (res bool) {
+func getEnvBool(key string, defaultVal bool) bool {
 	if envVal, ok := os.LookupEnv(key); ok {
-		res, _ = strconv.ParseBool(envVal)
+		envBool, err := strconv.ParseBool(envVal)
+		if err == nil {
+			return envBool
+		}
 	}
-	return res
+	return defaultVal
 }
 
 func main() {
@@ -103,6 +106,7 @@ func main() {
 			IsTile38:            conf.IsTile38,
 			ExportClientList:    conf.ExportClientList,
 			SkipTLSVerification: conf.SkipTLSVerification,
+			SetClientName:       conf.SetClientName,
 			ClientCertificates:  tlsClientCertificates,
 			ConnectionTimeouts:  to,
 			MetricsPath:         conf.MetricPath,
