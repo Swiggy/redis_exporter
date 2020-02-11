@@ -37,7 +37,7 @@ const (
 const (
 	defaultRedisAddr           = "redis://localhost:9851"
 	defaultRedisPwd            = ""
-	defaultNamespace           = "tile38"
+	defaultNamespace           = "namespace"
 	defaultCheckKeys           = ""
 	defaultCheckSingleKeys     = ""
 	defaultScriptPath          = ""
@@ -56,7 +56,7 @@ const (
 	defaultRedisMetricsOnly    = false
 	defaultInclSystemMetrics   = true
 	defaultSkipTLSVerification = true
-	defaultPushGatewayAddr     = "http://pushgateway.staging.singapore"
+	defaultPushGatewayAddr     = "http://localhost:8081"
 	defaultMetricsJobName      = ""
 	defaultAppName             = ""
 	defaultInstanceID          = ""
